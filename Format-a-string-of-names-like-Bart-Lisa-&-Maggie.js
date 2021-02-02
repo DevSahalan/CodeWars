@@ -48,6 +48,21 @@ const list = (names) => {
   }, '')
 }
 
+// Solution 4:
+function list(names) {
+  var xs = names.map((p) => p.name)
+  var x = xs.pop()
+  return xs.length ? xs.join(', ') + ' & ' + x : x || ''
+}
+
+// Solution 5:
+function list(names) {
+  return names
+    .map((o) => o.name)
+    .join(', ')
+    .replace(/^(.*)(, )(.*)$/, '$1 & $3')
+}
+
 console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]))
 console.log(list([{ name: 'Bart' }, { name: 'Lisa' }]))
 console.log(
