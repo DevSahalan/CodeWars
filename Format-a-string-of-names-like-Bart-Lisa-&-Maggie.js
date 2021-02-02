@@ -39,17 +39,17 @@ const list = (names) => {
 
 // Solution 3 : by
 const list = (names) => {
-  return names.reduce(function (prev, current, index, array) {
+  return names.reduce((prev, current, index, arr) => {
     return index === 0
       ? current.name
-      : index === array.length - 1
-      ? prev + ' & ' + current.name
-      : prev + ', ' + current.name
+      : index === arr.length - 1
+      ? `${prev} & ${current.name}`
+      : `${prev}, ${current.name}`
   }, '')
 }
 
 // Solution 4:
-function list(names) {
+const list = (names) => {
   var xs = names.map((p) => p.name)
   var x = xs.pop()
   return xs.length ? xs.join(', ') + ' & ' + x : x || ''
